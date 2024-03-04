@@ -1,7 +1,7 @@
 # algoExpert-Easy-Exercises
 This is just mainly for my practice of programming languages repository.
 
-//Two Number Sum Problem
+/*Two Number Sum Problem*/
 export function twoNumberSum(array: number[], targetSum: number) {
 
   for (let i = 0; i < array.length - 1; i ++){
@@ -16,5 +16,28 @@ export function twoNumberSum(array: number[], targetSum: number) {
     }
   }
   return [];
+}
+
+/*nonConstructible Change - Given an array of integers "coins" return the minimum change that cannot be constructed. For example, given [1,2,5] the minimum change that cannot be formed is 4.*/
+export function nonConstructibleChange(coins: number[]) {
+  if (coins.length === 0){
+    return 1;
+  } else {
+    coins.sort((a,b)=> a -b)
+  }
+
+  let sum_so_far: number = 0;
+
+  for (let i = 0; i < coins.length; i ++){
+    if (coins[0] > 1) {
+      return 1;
+    } else if (coins[i]-sum_so_far > 1){
+      return sum_so_far + 1;
+    } else {
+      sum_so_far += coins[i];
+    }
+  }
+
+  return sum_so_far + 1;
 }
 
