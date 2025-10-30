@@ -1,4 +1,4 @@
-def spiralTraverse(array):
+'''def spiralTraverse(array):
     traverse = []
     i=0
     j=0
@@ -50,7 +50,43 @@ def spiralTraverse(array):
         if array==[]:
             break
 
-    return print(traverse)
+    return print(traverse)'''
+
+def spiralTraverse(array):
+    traverse = []
+    
+    # Consider matrix having at least one dimension of length 1
+    # one row
+    if len(array) == 1:
+        return array[0]
+    
+    # one column
+    if len(array[0]) == 1:
+        for i in array:
+            traverse.append(i[0])
+        return traverse
+    
+    start, end, up, down = 0, len(array[0]), 0, len(array)
+    while start < (end / 2) or up < (down / 2):
+        print('hi')
+        for i in range(end):
+            traverse.append(array[up][i])
+            
+        for i in range(down):
+            traverse.append(array[i][end])
+            
+        for i in range(end - 1, start - 1, -1):
+            traverse.append(array[down][i])
+            
+        for i in range(down - 1, up, -1):
+            traverse.append(array[start][i])
+
+        start += 1
+        end -= 1
+        down += 1
+        up -= 1
+        
+    return traverse
 
 array = [[1,2,3,4],
          [12,13,14,5],
@@ -78,7 +114,7 @@ array4 = [
     [9, 19],
     [10, 20]]
 
-spiralTraverse(array4)
+print(spiralTraverse(array2))
 #spiralTraverse(array)
 
 #spiralTraverse(array2)
