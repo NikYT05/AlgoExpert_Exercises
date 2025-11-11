@@ -45,3 +45,5 @@ def nextGreaterElement(array):
 
 print(nextGreaterElement([2, 5, -3, -4, 6, 7, 2]))
 print(nextGreaterElement([1, 0]))
+
+# solved in 24 min
